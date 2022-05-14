@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo '=== Building Petclinic Docker Image ==='
                 script {
-                    app = docker.build("jjduartar/petclinic-spinnaker-jenkins")
+                    app = docker.build("duartar/petclinic-spinnaker-jenkins")
                 }
             }
         }
@@ -51,8 +51,8 @@ pipeline {
         stage('Remove local images') {
             steps {
                 echo '=== Delete the local docker images ==='
-                sh("docker rmi -f jjduartar/petclinic-spinnaker-jenkins:latest || :")
-                sh("docker rmi -f jjduartar/petclinic-spinnaker-jenkins:$SHORT_COMMIT || :")
+                sh("docker rmi -f duartar/petclinic-spinnaker-jenkins:latest || :")
+                sh("docker rmi -f duartar/petclinic-spinnaker-jenkins:$SHORT_COMMIT || :")
             }
         }
     }
